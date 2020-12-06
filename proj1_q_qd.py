@@ -65,7 +65,7 @@ ax.plot(times, qd2, 'r--', label="qd2")
 
 plt.legend(loc="upper left")
 
-ax.set(xlabel='time [step]', ylabel='angle [rad]', title='Proj1')
+ax.set(xlabel='time [step]', ylabel='angle [rad]')
 #ax.set(xlabel='time [step]', ylabel='torque [Nm]', title='Proj2 torque vs. time')
 
 ax.grid()

@@ -66,7 +66,7 @@ ax.plot(times, tau2, 'r', label="tau2")
 plt.legend(loc="upper right")
 
 #ax.set(xlabel='time [step]', ylabel='angle [rad]', title='Proj1')
-ax.set(xlabel='time [step]', ylabel='torque [Nm]', title='Proj1')
+ax.set(xlabel='time [step]', ylabel='torque [Nm]')
 
 ax.grid()
 

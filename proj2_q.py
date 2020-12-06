@@ -5,7 +5,7 @@ from csv import reader
 # read csv file as a list of lists
 from matplotlib import ticker
 
-with open('proj2.csv', 'r') as read_obj:
+with open('proj2_high.csv', 'r') as read_obj:
     # pass the file object to reader() to get the reader object
     csv_reader = reader(read_obj)
     # Pass reader object to list() to get a list of lists
@@ -63,9 +63,9 @@ ax.plot(times, q2, 'r', label="q2")
 #ax.plot(times, qd1, 'g--', label="qd1")
 #ax.plot(times, qd2, 'r--', label="qd2")
 
-plt.legend(loc="upper left")
+plt.legend(loc="upper right")
 
-ax.set(xlabel='time [step]', ylabel='angle [rad]', title='Proj2')
+ax.set(xlabel='time [step]', ylabel='angle [rad]')
 #ax.set(xlabel='time [step]', ylabel='torque [Nm]', title='Proj2 torque vs. time')
 
 ax.grid()
