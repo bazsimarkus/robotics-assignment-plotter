@@ -61,16 +61,23 @@ beta = []
 
 deg = 57.2958
 
-times = range(len(list_of_rows))
+values1 = []
+values2 = []
+
+
+for x in range(len(list_of_rows)):
+    if xd0[x] > 0.1:
+        values1.append(xd0[x])
+        values2.append(xd1[x])
 
 fig, ax = plt.subplots()
-ax.plot(xd0, xd1, 'b', label="angle")
+ax.plot(values1, values2, 'b', label="x-y function")
 #ax.plot(times, x0, 'g', label="x")
 #ax.plot(times, x1, 'r', label="y")
 
 plt.legend(loc="upper left")
 
-ax.set(xlabel='time [steps]', ylabel='angle [degrees]')
+ax.set(xlabel='x', ylabel='y')
 # ax.set(xlabel='time [step]', ylabel='torque [Nm]', title='Proj2 torque vs. time')
 
 ax.grid()
