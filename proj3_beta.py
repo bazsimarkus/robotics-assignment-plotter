@@ -61,24 +61,51 @@ beta = []
 
 deg = 57.2958
 
+x_below_zero = False;
+y_below_zero = True;
+offset = 0
+offsets = []
+
+
 for x in range(len(list_of_rows)):
-    param = (x0[x] - 0.6) / 0.2
-    if param > 1 or param < -1:
-        beta.append(math.acos(1)*deg)
-    else:
-        beta.append(math.acos((x0[x] - 0.6) / 0.2)*deg)
-#    t_var.append(math.sqrt(25*math.acos((x0[x]-0.6)/0.2)/math.pi))
+    x0[x] = x0[x] - 0.6
+    x1[x] = x1[x] - 0.35
+
+    beta.append(math.atan(x1[x] / x0[x]))
+
+for x in range(len(list_of_rows)):
+    if x_below_zero is False and x0[x] < 0:
+        x_below_zero = True
+        offset = offset + abs(beta[x] - beta[x-1])
+
+    if x_below_zero is True and x0[x] > 0:
+        x_below_zero = False
+        offset = offset + abs(beta[x] - beta[x-1])
+
+    if y_below_zero is False and x1[x] < 0:
+        y_below_zero = True
+
+    if y_below_zero is True and x1[x] > 0:
+        y_below_zero = False
+
+    offsets.append(offset)
+    print(offset)
+
+for x in range(len(list_of_rows)):
+    beta[x] = (beta[x] + offsets[x])*deg
+
 
 times = range(len(list_of_rows))
 
 fig, ax = plt.subplots()
-ax.plot(times, beta, 'b', label="beta")
+ax.plot(times, beta, 'b', label="angle")
+#ax.plot(times, x0, 'g', label="x")
+#ax.plot(times, x1, 'r', label="y")
 
+plt.legend(loc="upper left")
 
-plt.legend(loc="upper right")
-
-ax.set(xlabel='x0', ylabel='x1')
-#ax.set(xlabel='time [step]', ylabel='torque [Nm]', title='Proj2 torque vs. time')
+ax.set(xlabel='time [steps]', ylabel='angle [degrees]')
+# ax.set(xlabel='time [step]', ylabel='torque [Nm]', title='Proj2 torque vs. time')
 
 ax.grid()
 
