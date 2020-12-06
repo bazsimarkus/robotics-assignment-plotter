@@ -67,8 +67,8 @@ values2 = []
 
 for x in range(len(list_of_rows)):
     if xd0[x] > 0.1:
-        values1.append(x0[x])
-        values2.append(x1[x])
+        values1.append(xd0[x])
+        values2.append(xd1[x])
 
 fig, ax = plt.subplots()
 ax.plot(values1, values2, 'b', label="x-y function")
