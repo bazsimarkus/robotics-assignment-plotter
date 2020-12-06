@@ -115,13 +115,13 @@ for x in range(len(list_of_rows)):
 times = range(len(list_of_rows))
 
 fig, ax = plt.subplots()
-ax.plot(times, beta_velocity, 'b', label="angle")
+ax.plot(times, beta_velocity, 'b', label="angle velocity")
 #ax.plot(times, x0, 'g', label="x")
 #ax.plot(times, x1, 'r', label="y")
 
 plt.legend(loc="upper left")
 
-ax.set(xlabel='time [steps]', ylabel='angle velocity [rad/step]')
+ax.set(xlabel='time [steps]', ylabel='angle velocity [degree/step]')
 # ax.set(xlabel='time [step]', ylabel='torque [Nm]', title='Proj2 torque vs. time')
 
 ax.grid()
