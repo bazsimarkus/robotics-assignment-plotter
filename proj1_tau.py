@@ -70,5 +70,5 @@ ax.set(xlabel='time [step]', ylabel='torque [Nm]', title='Proj1')
 
 ax.grid()
 
-# fig.savefig("test.png")
+#fig.savefig("test.png")
 plt.show()
